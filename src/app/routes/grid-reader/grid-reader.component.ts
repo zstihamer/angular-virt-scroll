@@ -23,14 +23,14 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
   constructor(private service: ParagraphService,
               private router: Router,
               private location: Location) {
-    this.gridHeight = window.innerHeight - 200;
+    this.gridHeight = window.innerHeight - 220;
     this.setState();
     this.loadData();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.gridHeight = window.innerHeight - 200;
+    this.gridHeight = window.innerHeight - 220;
   }
 
   public pageChange(event: PageChangeEvent): void {
