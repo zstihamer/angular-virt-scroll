@@ -1,4 +1,4 @@
-# Angular Virtual Scrolll App
+# Angular Virtual Scroll App
 An angular virtual scrolling demo project.
 
 ## Get the rest api
