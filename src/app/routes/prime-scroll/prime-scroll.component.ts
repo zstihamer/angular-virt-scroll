@@ -30,14 +30,14 @@ export class PrimeScrollComponent implements OnInit, AfterViewInit {
   }
 
   scroll(event) {
-    this.state.take = event.rows;
+    // this.state.take = event.rows;
     this.state.skip = event.first;
     this.loadData();
   }
 
 
   public ngAfterViewInit(): void {
-    this.scroller.onLazyLoad.pipe(debounceTime((3000))).subscribe((e) => this.scroll(e));
+    this.scroller.onLazyLoad.pipe(debounceTime((500))).subscribe((e) => this.scroll(e));
   }
 
   private loadData(isInit = false): void {
@@ -51,9 +51,9 @@ export class PrimeScrollComponent implements OnInit, AfterViewInit {
           this.stateToUrl();
         }
       }).catch(e => {
-      console.log(e);
-      this.state.skip = 0;
-      this.loadData();
+      console.error(e);
+      // this.state.skip = 0;
+      // this.loadData();
     });
   }
 

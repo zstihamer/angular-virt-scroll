@@ -43,7 +43,7 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.grid.pageChange.pipe(debounceTime((200))).subscribe((e) => this.pageChange(e));
+    this.grid.pageChange.pipe(debounceTime((500))).subscribe((e) => this.pageChange(e));
   }
 
   private loadData(isInit = false): void {
@@ -59,8 +59,9 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
           }
         },
         (error) => {
-          this.state.skip = 0;
-          this.loadData();
+          console.error(error);
+          // this.state.skip = 0;
+          // this.loadData();
         });
 
   }
