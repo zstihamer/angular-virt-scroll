@@ -25,7 +25,7 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
               private location: Location) {
     this.gridHeight = window.innerHeight - 220;
     this.setState();
-    this.loadData();
+    this.loadData(true);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -46,8 +46,7 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
     this.grid.pageChange.pipe(debounceTime((200))).subscribe((e) => this.pageChange(e));
   }
 
-  private loadData(): void {
-
+  private loadData(isInit = false): void {
     this.service.getParagraphs(this.state).toPromise()
       .then(res => {
           this.gridView = {
@@ -55,7 +54,9 @@ export class GridReaderComponent implements OnInit, AfterViewInit {
             total: res.total
           };
           this.loading = false;
-          this.stateToUrl();
+          if (!isInit) {
+            this.stateToUrl();
+          }
         },
         (error) => {
           this.state.skip = 0;

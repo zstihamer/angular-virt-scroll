@@ -1,7 +1,9 @@
 import {Location} from '@angular/common';
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {GridDataResult} from '@progress/kendo-angular-grid';
+import {VirtualScroller} from 'primeng';
+import {debounceTime} from 'rxjs/operators';
 import {PageState} from '../../model';
 import {ParagraphService, toRestFilter, urlToState} from '../../services';
 
@@ -10,9 +12,11 @@ import {ParagraphService, toRestFilter, urlToState} from '../../services';
   templateUrl: './prime-scroll.component.html',
   styleUrls: ['./prime-scroll.component.scss']
 })
-export class PrimeScrollComponent implements OnInit {
+export class PrimeScrollComponent implements OnInit, AfterViewInit {
   public gridView: GridDataResult = {data: [], total: 0};
   public state: PageState = new PageState({skip: 0, take: 50});
+  @ViewChild(VirtualScroller, {static: false}) scroller: VirtualScroller;
+
 
   constructor(private service: ParagraphService,
               private router: Router,
@@ -22,7 +26,7 @@ export class PrimeScrollComponent implements OnInit {
 
   ngOnInit() {
     this.setState();
-    this.loadData();
+    this.loadData(true);
   }
 
   scroll(event) {
@@ -31,14 +35,21 @@ export class PrimeScrollComponent implements OnInit {
     this.loadData();
   }
 
-  private loadData(): void {
+
+  public ngAfterViewInit(): void {
+    this.scroller.onLazyLoad.pipe(debounceTime((3000))).subscribe((e) => this.scroll(e));
+  }
+
+  private loadData(isInit = false): void {
     this.service.getParagraphs(this.state).toPromise()
       .then(res => {
         this.gridView = {
           data: res.data,
           total: res.total
         };
-        this.stateToUrl();
+        if (!isInit) {
+          this.stateToUrl();
+        }
       }).catch(e => {
       console.log(e);
       this.state.skip = 0;
