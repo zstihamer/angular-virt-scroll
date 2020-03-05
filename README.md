@@ -1,9 +1,9 @@
-# AgInfiniteReader
+# Angular Virtual Scrolll App
 An angular virtual scrolling demo project.
 
 ## Get the rest api
 Ther rest api project is available at:  
-https://github.com/zstihamer/docu-paginator
+https://github.com/zstihamer/paragraph-api
 
 ## Development server
 Set in the env file the REST Api URL baseUrl, the default is `http://localhost:8182`.
