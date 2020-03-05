@@ -4,7 +4,7 @@
   </div>
   <span><hr></span>
   <div>
-    <p-virtualScroller (onLazyLoad)="scroll($event)" [cache]="false" [itemSize]="state.take + 50" [lazy]="true" [rows]="state.take"
+    <p-virtualScroller (onLazyLoad)="scroll($event)" [cache]="false" [itemSize]="150" [lazy]="true" [rows]="100"
                        [totalRecords]="gridView.total" [value]="gridView.data" scrollHeight="750px">
       <ng-template let-data pTemplate="item">
         <app-paragraph [textHtml]="data" class="mt-2 mb-2"></app-paragraph>
