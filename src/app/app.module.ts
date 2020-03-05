@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GridModule} from '@progress/kendo-angular-grid';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
@@ -25,6 +26,7 @@ import {ServicesModule} from './services/services.module';
     BrowserAnimationsModule,
     ComponentsModule,
     GridModule,
+    VirtualScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

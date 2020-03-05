@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="text-center" style="margin-top: 5em">
+    <h6>{{ gridView.total | number}} hír található</h6>
+  </div>
+  <span><hr></span>
+  <div>
+    <p-virtualScroller (onLazyLoad)="scroll($event)" [cache]="false" [itemSize]="state.take + 20" [lazy]="true" [rows]="state.take"
+                       [totalRecords]="gridView.total" [value]="gridView.data" scrollHeight="750px">
+      <ng-template let-data pTemplate="item">
+        <app-paragraph [textHtml]="data" class="mt-2 mb-2"></app-paragraph>
+      </ng-template>
+      <ng-template let-data pTemplate="loadingItem">
+        Loading...
+      </ng-template>
+    </p-virtualScroller>
+  </div>
+</div>
+<footer class="py-2 bg-dark text-white-50" id="sticky-footer">
+  <div class="container text-center" style="font-size: small">
+    <h6>Megjenített/Összesen: {{state.skip | number}} - {{state.skip + state.take | number}} / {{ gridView.total | number}}</h6>
+  </div>
+</footer>

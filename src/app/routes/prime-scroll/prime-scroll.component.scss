@@ -1,0 +1,18 @@
+.container {
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+:host ::ng-deep p-virtualscroller > div > div > ul > cdk-virtual-scroll-viewport > div.cdk-virtual-scroll-content-wrapper > li {
+  height: auto !important;
+}
+
