@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Virtual Scrolling</a>
+  <button (click)="toggleNavbar()" class="navbar-toggler collapsed"
+          type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/read" routerLinkActive="active">Hírek</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/kendo" routerLinkActive="active">Kendo Reader</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+

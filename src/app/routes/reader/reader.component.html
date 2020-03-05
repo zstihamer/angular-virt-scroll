@@ -1,0 +1,40 @@
+<div class="scroller">
+  <div (scrolled)="onDownScroll()"
+       (scrolledUp)="onUpScroll()"
+       [fromRoot]="true"
+       [infiniteScrollContainer]="'.scroller'"
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="150"
+       [infiniteScrollUpDistance]="2"
+       infiniteScroll>
+    <div *ngIf="pageData as page" class="container">
+      <div>
+        <div class="text-center" style="margin-top: 5em">
+          <h6>{{ page.total | number}} hír található</h6>
+        </div>
+        <div class="align-content-center m-3">
+          <div class="row">
+            <div *ngFor="let post of page.data" class="col-lg-12">
+              <app-paragraph [textHtml]="post"></app-paragraph>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ngx-spinner
+  [fullScreen]="true"
+  bdColor=""
+  bdOpacity=0.7
+  color="#581f87"
+  size="large"
+  type="ball-atom">
+</ngx-spinner>
+<footer class="py-2 bg-dark text-white-50" id="sticky-footer">
+  <div class="container text-center" style="font-size: small">
+    <h6>Megjenített/Összesen: {{state.skip | number}} - {{state.skip + state.take | number}} / {{ pageData.total | number}}</h6>
+  </div>
+</footer>

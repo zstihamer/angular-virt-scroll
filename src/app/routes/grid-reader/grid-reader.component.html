@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="text-center" style="margin-top: 5em">
+    <h6>{{ gridView.total | number}} hír található</h6>
+  </div>
+  <span><hr></span>
+  <div>
+    <kendo-grid
+      (pageChange)="pageChange($event)"
+      [data]="gridView"
+      [height]="gridHeight"
+      [hideHeader]="true"
+      [loading]="loading"
+      [navigable]="true"
+      [pageSize]="state.take"
+      [rowHeight]="state.take"
+      [skip]="state.skip"
+      scrollable="virtual">
+      <kendo-grid-column>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <app-paragraph [textHtml]="dataItem"></app-paragraph>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-messages
+        noRecords="Nincs megjeleníthető találat.">
+      </kendo-grid-messages>
+    </kendo-grid>
+  </div>
+</div>
