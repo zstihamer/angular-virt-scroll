@@ -1,4 +1,6 @@
+import {registerLocaleData} from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import localeHu from '@angular/common/locales/hu';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -15,6 +17,7 @@ import {RoutesModule} from './routes/routes.module';
 import {HttpErrorInterceptor} from './services/interceptors/http-error.interceptor';
 import {ServicesModule} from './services/services.module';
 
+registerLocaleData(localeHu, 'hu');
 
 @NgModule({
   declarations: [

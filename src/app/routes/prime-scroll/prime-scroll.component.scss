@@ -16,3 +16,8 @@
   height: auto !important;
 }
 
+
+:host ::ng-deep p-virtualscroller > div > div > ul > cdk-virtual-scroll-viewport > div.cdk-virtual-scroll-content-wrapper {
+  max-width: -webkit-fill-available !important;
+}
+

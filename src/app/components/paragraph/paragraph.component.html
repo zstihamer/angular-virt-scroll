@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <div class="content mb-1 mt-2">
-      <div [innerHTML]="textHtml | sanitizeHtml"></div>
+      <div [innerHTML]="textHtml | decode | sanitizeHtml"></div>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center" style="margin-top: 5em">
-    <h6>{{ gridView.total | number}} hír található</h6>
+    <h6>{{ gridView.total | number:'1.0-3'}} hír található</h6>
   </div>
   <span><hr></span>
   <div>
@@ -28,7 +28,7 @@
 </div>
 <footer class="py-2 bg-dark text-white-50" id="sticky-footer">
   <div class="container text-center" style="font-size: small">
-    <h6>Megjenített/Összesen: {{state.skip | number}} - {{state.skip + state.take | number}} / {{ gridView.total | number}}</h6>
+    <h6>Megjenített/Összesen: {{state.skip | number:'1.0-3'}} - {{state.skip + state.take | number:'1.0-3'}} / {{ gridView.total | number:'1.0-3'}}</h6>
   </div>
 </footer>
 
