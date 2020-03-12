@@ -11,6 +11,9 @@ import {ParagraphService, toRestFilter, urlToState} from '../../services';
   templateUrl: './grid-reader.component.html',
   styleUrls: ['./grid-reader.component.scss']
 })
+/**
+ *  Kendo Gride example of virtual scrolling
+ */
 export class GridReaderComponent implements OnInit, AfterViewInit {
 
   public gridView: GridDataResult = {data: [], total: 0};

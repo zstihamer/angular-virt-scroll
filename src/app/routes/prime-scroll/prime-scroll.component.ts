@@ -12,6 +12,9 @@ import {ParagraphService, toRestFilter, urlToState} from '../../services';
   templateUrl: './prime-scroll.component.html',
   styleUrls: ['./prime-scroll.component.scss']
 })
+/**
+ *  PrimeNg example of virtual scrolling
+ */
 export class PrimeScrollComponent implements OnInit, AfterViewInit {
   public gridView: GridDataResult = {data: [], total: 0};
   public state: PageState = new PageState({skip: 0, take: 50});

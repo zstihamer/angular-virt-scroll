@@ -2,8 +2,7 @@
 An angular virtual scrolling demo project.
 
 ## Get the rest api
-Ther rest api project is available at:  
-https://github.com/zstihamer/paragraph-api
+Get the rest api project from [GitHub repo](https://github.com/zstihamer/paragraph-api).
 
 ## Development server
 Set in the env file the REST Api URL baseUrl, the default is `http://localhost:8182`.
