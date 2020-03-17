@@ -1,5 +1,5 @@
 {
-  "name": "ag-infinite-reader",
+  "name": "ag-virt-scroll",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
