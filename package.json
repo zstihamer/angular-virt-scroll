@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mock": "json-server mock/data.json --routes mock/routes.json --no-cors=false"
+    "mock": "json-server mock/data.json --routes mock/routes.json --no-cors=false",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
